@@ -37,7 +37,7 @@ public void tester()
   }
 }
   
-public boolean palindrome(String word)
+public boolean palindrome(String sWord)
 {
     if(sWord == ""){
     return true;
@@ -56,7 +56,7 @@ public boolean palindrome(String word)
   return false;
 }
   
-public String reverse(String str)
+public String reverse(String sWord)
 {
     String ok = "";
   for(int i = sWord.length()-1; i >= 0; i--){
