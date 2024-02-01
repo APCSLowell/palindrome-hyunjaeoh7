@@ -25,6 +25,7 @@ public void tester()
   System.out.println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
+    lines[i] = onlyLetters(noSpaces(noCapitals(lines[i])));
     if(palindrome(lines[i])==true)
     {
       System.out.println(lines[i] + " IS a palindrome.");
@@ -35,15 +36,56 @@ public void tester()
     }
   }
 }
+  
 public boolean palindrome(String word)
 {
-  //your code here
+    if(sWord == ""){
+    return true;
+  }
+  int sick = 0;
+  if(sWord.length() % 2 == 1){
+    sick = 1;
+  }
+  
+  String a = sWord.substring(0, (sWord.length()/2));
+  String b = sWord.substring((sWord.length()/2)+sick, sWord.length());
+
+  if(a.equals(reverse(b))){
+    return true;
+  }
   return false;
 }
+  
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+    String ok = "";
+  for(int i = sWord.length()-1; i >= 0; i--){
+    ok = ok + sWord.substring(i,i+1);
+  }
+  return ok;
+}
+
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
+
+public String noSpaces(String sWord){
+  String sick = "";
+  for(int i = 0; i < sWord.length(); i++){
+    if(!(sWord.substring(i,i+1).equals(" "))){
+      sick += sWord.substring(i,i+1);
+    }
+  }
+  return sick;
+}
+
+public String onlyLetters(String sString){
+  String sick = "";
+  for(int i = 0; i < sString.length(); i++){
+    if(Character.isLetter(sString.charAt(i))){
+      sick += sString.charAt(i);
+    }
+  }
+  return sick;
 }
 }
