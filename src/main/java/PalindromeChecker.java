@@ -25,7 +25,6 @@ public void tester()
   System.out.println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
-    lines[i] = onlyLetters(noSpaces(noCapitals(lines[i])));
     if(palindrome(lines[i])==true)
     {
       System.out.println(lines[i] + " IS a palindrome.");
@@ -39,7 +38,8 @@ public void tester()
   
 public boolean palindrome(String sWord)
 {
-    if(sWord == ""){
+  sWord = onlyLetters(noSpaces(noCapitals(sWord)));
+  if(sWord == ""){
     return true;
   }
   int sick = 0;
